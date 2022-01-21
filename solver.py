@@ -1,6 +1,8 @@
 import sys
 import time
 import re
+import warnings
+warnings.filterwarnings("ignore")
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -78,10 +80,10 @@ def simple_strategy():
         if i == 5:
             print(vocab[0])
             web.send_word_get_answer(vocab[0])
-            sys.exit()
+            time.sleep(10)
         elif len(vocab) == 1:
             web.send_word_get_answer(vocab[0])
-            sys.exit()
+            time.sleep(10)
         else:
             round_ = web.send_word_get_answer(guess[i])
             for key, value in round_[1].items():
@@ -96,7 +98,7 @@ def simple_strategy():
             print(vocab)
 
         time.sleep(2)
-    time.sleep(1000)
+    time.sleep(10)
 
 
 simple_strategy()
